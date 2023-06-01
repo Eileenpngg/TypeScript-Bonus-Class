@@ -28,24 +28,33 @@ HOWEVER, do take note that you can still use type specific methods by accessing 
 ```
 
 ### Enums
-Restrict choices e.g e commerce store 
+Enums which most of you should be familiar with now, helps restrict choices. 
 
-Difference between bputting a const before enum and no const (shorter line of code)
-enum SeatChoice{
-	AISLE = “aisle”
-	MIDDLE= 3,
-	WINDOW,  (value will, be 4 because increment in number would show a error if previou value is a a string and current value is empty)
-	FOURTH
+For example we have a range of products in our e-commerce store under the category, daily essentials. We can create a enum of daily essentials with the different products and assign a value to it.
+
+```typescript 
+enum dailyEssentials{
+	TOOTHBRUSH, 
+	TOOTHPASTE, 
+	SHAMPOO, 
+	SOAP,
+}
+```
+If we hover over the first product (TOOTHBRUSH) you can see by default, the product is assigned a value 0, and the subsequent product 1, 2 and 3. 
+
+![Screenshot 2023-06-01 at 4 52 18 PM](https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e3e007ee-4300-4cb3-b84b-1a7e41bf4bee)
+
+But what if we want each product to each have their indiviual prices? We can assign a value to the products like this!
+
+```typescript 
+enum dailyEssentials{
+	TOOTHBRUSH = 2, 
+	TOOTHPASTE = 5, 
+	SHAMPOO 11, 
+	SOAP = 6,
 }
 
-Const hcSeat = SeatChoice.AISLE
+const cost = dailyEssential.SOAP // cost = 6
 
-React typescript vs react the biggest difference
-You type your props + declare an interface for all your props
-Interface AppProps{
-hello: String
-}
-
-!!!! note cant use interfaces for non-object types
-
-usually we would just use type until there is a need for interfaces 
+>Note that if you dont declare a value for any of the enum, by default, it will be an increment of the previous enum value. e.g if toothpaste = 5 , by default shampoo=6 unless specified
+```
