@@ -1,5 +1,7 @@
 
-### Union Types
+## Union Types
+![](https://media.giphy.com/media/cIWwi5umxQRNOwrJm4/giphy.gif)
+
 **Union types** is a type that is useful when you are unsure of the data that is coming in, **instead of** using **any**, use union types.
 
 Now lets say we want to create a variable score that stores a student's score if he passes and "fail" if he did not pass the test.
