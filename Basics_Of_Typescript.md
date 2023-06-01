@@ -38,7 +38,7 @@ let name: string = "Johnson"
 ---
 
 <details>
-<summary> What happens when you try to assign a number to the variable? </summary>
+<summary> 💡What happens when you try to assign a number to the variable? </summary>
 <br>
 <img width="504" alt="Screenshot 2023-05-29 at 1 18 26 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/1468a657-b945-43ee-b378-c1d0c8925ab1">
   
@@ -76,7 +76,7 @@ This ensures that **only** a value of the type **number** can be returned.
 ---
 
 <details>
-<summary> What happens when you try to apply a string method (e.g toLowerCase) to a value of type number? </summary>
+<summary> 💡 What happens when you try to apply a string method (e.g toLowerCase) to a value of type number? </summary>
 <br>
 <img width="540" alt="Screenshot 2023-05-30 at 1 31 41 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/6a988de2-2f4b-4c25-8c3d-f64080708846">
   
@@ -230,56 +230,6 @@ allUser.push({name: “”, isActive: true })
 </details>
 
 ---
-
-### Union Types
-**Union types** is a type that is useful when you are unsure of the data that is coming in, **instead of** using **any**, use union types.
-
-Now lets say we want to create a variable score
-
-```typescript
-let score: number | string;
-score= 33
-score=“fail”
-```
-
-```typescript
-type User{
-	name: String
-	Id: number
-}
-
-type Admin{
-	username: String
-	Id: number
-}
-
-
-Let eileen = User | Admin = {name:”hitesh, id334}
-eileen= {username: ‘hc’, id: 334}
-```
-
-using union types in function
-```
-function getDbId(id: number | string){
-Console.log(`DB id is ${id})
-id.toLowerCase() // dont allow this because there is a potential that the value might be a number so include an if else statement
-}
-
-getDbId(3)
-getDbid(‘33)
-```
-
-### Arrays Union type 
-Const data1: number[ ] = [1,2,3]
-Const data2: string [ ] =  [“1”,”2”,”3”]
-Const data3: string | number [ ] = [“1”, “2”] (will cause an error) correct example below 
-Const data 3:  string(string| number)[ ] =[“1”, 2]
-
-Let seat Allotment = “aisle” | “middle” | “window”
-
-seatAllotment = “aisle”
-
-seatAllotment= “crew” (will cause an error becaus the value is not inside)
 
   
   
