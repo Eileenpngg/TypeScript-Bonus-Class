@@ -106,10 +106,10 @@ Now lets create a getter that returns the email of a user
 
 ```typescript
 get userEmail: string{
-return email: ${this.email]
+return email: ${this.email}
 }
 ```
-We will also setter to increment the points by 10 every time a user makes a purchase above $20.
+We will also create a setter `set points` to increment the points by 10 every time a user makes a purchase above $20.
 
 ```typescript
 set points(spending){
@@ -123,11 +123,11 @@ Now you can only increment the points if thes spending is more than $20.
 
 ### Protected 
 
-Lets mark the User class as private and create a subUser that extends our User class which has a methods that adds 100 points to User points property
+Lets mark the User class as `private` and create a `subUser` that **extends** our `User` class which has a methods that adds 100 points to `User` `points` property
 
 ```typescript
 private class User{
-    point=10
+    points=10
     constructor(public email: string, public name: string){
   }
   }
@@ -146,7 +146,7 @@ We can mark the class as protected to make the property accessible to its own cl
 
 ```typescript
 protected class User{
-    point=10
+    points=10
     constructor(public email: string, public name: string){
   }
   }
@@ -157,10 +157,10 @@ class SubUser extends User{
 }
 }
 ```
-This would allow subUser to update the points.
+This would allow `subUser` to update the points.
 
 ### Interfaces in classes
-Interfaces is especially useful in classes. Here we can create a class of Dog that implements an interface of Animal
+Interfaces is especially useful in classes. Here we can create a class of `Dog` that implements an interface of `Animal`
 
 ```typescript
 Interface Animal{
