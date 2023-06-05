@@ -4,7 +4,7 @@
 
 As with most typescript syntax, the syntax for classes in Typescript is similar to Javascript.
 
-Lets start by creating a class `User` in javascript
+a) Lets start by creating a class `User` in javascript
 
 ```javascript
 class User{
@@ -14,7 +14,7 @@ class User{
 }
 }
 ```
-Now lets try to add typescript in
+b) Now lets try to add typescript in
 ```typescript 
 class User{
 	email:: string
@@ -27,13 +27,13 @@ class User{
 ```
 If you notice, the `email` and `name` are class properties that we did not need to declare in Javascript. However in Typescript, it is necessary to declare it so we can type check the class properties.
 
-Next, we can initialize the class using the `this` keyword or by initializing it to the property directly
+c) Next, we can initialize the class using the `this` keyword or by initializing it to the property directly
 
 ```typescript 
 class User{
 	email:: string
 	name: string
-  phone: number=12345 //initalized it like this      
+  	phone: number=12345 //initalized it like this      
 	constructor(email: string, name: string){
 	this.email=email; // or like this
 	this.name= name
@@ -41,14 +41,16 @@ class User{
 }
 ```
 
-Now lets create a new instance of a User John
+d) Now lets create a new instance of a User John
 ```typescript
 const John= new User(“john@gmail.com”, “”john”)
 ```
 We can change the phone number of john by overwriting the default number like this
 `john.phone=”01234567"`
 
-But what if we dont want the phone number to be overwritten? We can add a `readonly` property to the `phone`!
+But what if we dont want the phone number to be overwritten? 
+
+e) We can add a `readonly` property to the `phone`!
 
 ```typescript 
 class User{
@@ -62,11 +64,12 @@ class User{
 }
 ```
 
-Now if i try to overwrite the phone, it will return an error and prevent the phone number from being overwritten
+Now if i try to overwrite the phone, it will return an error and prevent `phone` from being overwritten
 
--------------INSERT ERROR-------------
+<img width="594" alt="Screenshot 2023-06-05 at 1 53 50 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e08fc7aa-4af9-404f-8502-d521d26e61db">
 
-If we want to control whether people can access the information, we can declare the `email` and `name` as `public` OR `private`.
+f) If we want to control whether people can access the information, we can declare the `email` and `name` as `public` OR `private`.
+
 ```typescript 
 class User{
     email: string
@@ -92,17 +95,18 @@ In typescript, we can actually make the code shorter by using the shorthand synt
 
 ### Getter and Setters
 
-Now we want to be able to control the access to properties and manipulate it whenever they want so we can use **getters and setters** to set conditions before akkiwung . Lets create a point system for our user. 
+Now we want to be able to control the access to properties so we can use **getters and setters** to set conditions before allowing access the properties. 
 
+a) Lets create a point system for our user. 
 ```typescript
 class User{
-    point=10
+    points=10
     constructor(public email: string, public name: string){
   }
   }
 ```
 
-Now lets create a getter that returns the email of a user
+b) Now lets create a getter that returns the email of a user
 
 ```typescript
 get userEmail: string{
@@ -114,7 +118,7 @@ We will also create a setter `set points` to increment the points by 10 every ti
 ```typescript
 set points(spending){
 	if(spending > 20)
-	this.point +=10
+	this.points +=10
 } 
 ```
 Now you can only increment the points if thes spending is more than $20.
@@ -123,7 +127,7 @@ Now you can only increment the points if thes spending is more than $20.
 
 ### Protected 
 
-Lets mark the User class as `private` and create a `subUser` that **extends** our `User` class which has a methods that adds 100 points to `User` `points` property
+a) Lets mark points in `User` class as `private` and create a `subUser` that **extends** our `User` class and has a method that adds 100 points to `User` `points` property
 
 ```typescript
 private class User{
@@ -140,9 +144,9 @@ class SubUser extends User{
 ```
 However this will return an error as private only allows access to its property and methods in its own class
 
--------------INSERT ERROR-------------
+<img width="684" alt="Screenshot 2023-06-05 at 1 15 13 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e87c7518-ce4f-4d6f-be25-60cb79326dc3">
 
-We can mark the class as protected to make the property accessible to its own class and its childs 
+b) We can mark the class as `protected` instead to make the property accessible to its **own class and its childrens** 
 
 ```typescript
 protected class User{
