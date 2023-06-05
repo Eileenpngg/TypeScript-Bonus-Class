@@ -112,6 +112,7 @@ SuperHeroes.push(“Spiderman”)
 
 Now lets give it a try! 
 ---
+
 <details>
 <summary> :pencil2: Try to create an array of numbers only</summary>
 <br>
@@ -155,6 +156,8 @@ const allUsers: User[]= []
 allUser.push({name: “”, isActive: true })
 ```
 </details>
+
+---
 
 ## Functions 
 
@@ -202,7 +205,7 @@ Now if i try to return a object with a key that **doesnt exist** on the return t
 <img width="1280" alt="Screenshot 2023-05-30 at 2 01 36 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/5adb5b7e-eaf9-4ecc-ae6c-0277b75b33c6">
 
 <details>
-<summary> :bulb: What is the difference between the type **void** and **never**? </summary>
+<summary> :bulb: What is the difference between the type void and never? </summary>
 <br>
 **void** can be `null` or `undefined`, **never** is used when something is **never going to occur**. For example, you write a function that will **not return to its end point** or **always throws an exception**.
   
