@@ -1,8 +1,7 @@
-import { useState } from "react";
 import "./App.css";
 import ToDoForm from "./components/ToDoForm";
 import ToDoList from "./components/ToDoList";
-function App() {
+const App: React.FC = () =>{
   return (
     <>
       <ToDoForm />

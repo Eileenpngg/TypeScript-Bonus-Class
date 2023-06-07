@@ -1,4 +1,4 @@
-function ToDo() {
+const ToDo: React.FC = () => {
   return (
     <>
       <div id="toDo">
@@ -10,5 +10,5 @@ function ToDo() {
       </div>
     </>
   );
-}
+};
 export default ToDo;

@@ -1,4 +1,4 @@
-function ToDoForm() {
+const ToDoForm: React.FC=()=> {
   return (
     <>
       <div id="toDoForm">
@@ -9,4 +9,5 @@ function ToDoForm() {
     </>
   );
 }
+
 export default ToDoForm;

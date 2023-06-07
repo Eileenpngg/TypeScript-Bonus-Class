@@ -1,9 +1,10 @@
 import ToDo from "./ToDo";
-function ToDoList() {
+
+const ToDoList: React.FC = () => {
   return (
     <>
       <ToDo />
     </>
   );
-}
+};
 export default ToDoList;
