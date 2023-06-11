@@ -1,26 +1,25 @@
-## Typescript With React 
+# Typescript With React 
 
 <img width="937" alt="Screenshot 2023-06-05 at 2 56 54 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/4f6a9bed-55b5-41e3-ac0e-ec1df3c70525">
+<br/>
+To demonstrate the difference between using Javascript and Typescript in React, we would be creating a To-Do List App. 
 
-To demonstrate the difference between using Javascript and Typescript in React, we would be creating a To-Do List. 
+## Creating the UI
 
-
-------INSERT IMAGE OF TO DO LIST----------
-
-
-1) First lets create the components and UI for the To-Do list. We would need 3 components: 
+We would need 3 components: 
 - A ToDo component
 - A ToDoList component
 - A ToDoForm component
 
-  a) Create a vite project 
+### a) Create a vite project
 
   In your tsconfig make the following changes 
   -  change `"moduleResolution": "bundler"` to `"moduleResolution": "node"`
   -  change `"resolveJsonModule"` to `"allowJs": true`
   -  add `"allowSyntheticDefaultImports": true`
 
-  b) Now we can start to create our `ToDoForm` component. In Typescript, we need should always specify the return type whenever possible, hence for our component we would import `React` and be using using `React:FC` as our return type as shown below.
+ ### b) Create `ToDoForm` component
+  In Typescript, we need should always **specify the return type whenever possible**, hence for our component we would be using using `React:FC` as our return type as shown below.
   > Note that if you are using the keyword `function` instead of arrow function, you should be specifiying `JSX.Element` as your return type instead
 
   ```javascript
@@ -39,7 +38,7 @@ To demonstrate the difference between using Javascript and Typescript in React, 
   export default ToDoForm;
   ```
 
-  c) We are going to do the same for the `SingleToDo` component
+  ### c) Create `SingleToDo` component
   ```javascript
   const SingleToDo: React.FC = () => {
     return (
@@ -58,7 +57,7 @@ To demonstrate the difference between using Javascript and Typescript in React, 
 
   ```
 
-  d) Create `ToDoList` component and add ToDo as a child
+  ### d) Create `ToDoList` component and add ToDo as a child
   ```javascript
   import SingleToDo from "./SingleToDo";
   function ToDoList() {
@@ -72,7 +71,7 @@ To demonstrate the difference between using Javascript and Typescript in React, 
 
   ```
 
-  e) Now lets add the `ToDoForm` and `ToDoList` under our `App.tsx` like this:
+  ### e) Add the `ToDoForm` and `ToDoList` under our `App.tsx`
   ``` typescript 
   import "./App.css";
   import ToDoForm from "./components/ToDoForm";
@@ -88,40 +87,17 @@ To demonstrate the difference between using Javascript and Typescript in React, 
   export default App;
   ```
 
-2) Now, we want to capture the value when a user types in a To-Do. 
+## Capture the value when a user types in a To-Do. 
 
-  a) To do that, first we need to create a `toDo` state in the `App.tsx` with a `" "` as the inital state and specify the type of our `toDo` by setting the `toDo` state to have a type of `string`
+  ### a) Create a `toDo` state in the `App.tsx` with a `" "` as the inital state and specify the type of our `toDo` by setting the `toDo` state to have a type of `string`
 
   ```typescript 
-  import "./App.css";
-  import { useState } from "react";
-
-  import ToDoForm from "./components/ToDoForm";
-  import ToDoList from "./components/ToDoList";
-
-  const App: React.FC = () => {
-    const [toDo, setToDo] = useState<string>("");
-
-    return (
-      <>
-        <ToDoForm />
-        <ToDoList />
-      </>
-    );
-  };
-
-export default App;
+ const [toDo, setToDo] = useState<string>("");
 ```
   
-  b) Next, we will pass down the `toDo` and `setToDo` as props to `ToDoForm`
+   ### b) Pass down the `toDo` and `setToDo` as props to `ToDoForm`
 
   ```typescript 
-  import "./App.css";
-  import { useState } from "react";
-
-  import ToDoForm from "./components/ToDoForm";
-  import ToDoList from "./components/ToDoList";
-
   const App: React.FC = () => {
     const [toDo, setToDo] = useState<string>("");
     return (
@@ -131,14 +107,12 @@ export default App;
       </>
     );
   };
-
-export default App;
 ```
-  You will then see this error when passing it down as props, this means that the prop does not exist on `toDoForm`
+  ❗You will then see this error when passing it down as props, this means that the prop does not exist on `toDoForm`❗
 
   ![Screenshot 2023-06-08 at 12 42 07 AM](https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/56edd106-b258-45cd-9a93-6d1b14378b52)
 
-  Now once youve added the props in `toDoForm` you would need to create an interface called `toDoProps` which contains `toDo` and `setToDo`.
+  Once youve added the props in `toDoForm` you would need to create an type called `toDoProps` which contains `toDo` and `setToDo`.
 
   We know that `toDo` has a type of string, but what about `setToDo`?
 
@@ -146,9 +120,9 @@ export default App;
 
   [Uploading Screenshot 2023-06-08 at 1.51.16 PM.png…]()
 
-  Now we can add the interface as a type to the `toDoForm` component like this:
+  Now we can add the interface as a type to the `toDoForm` component in `ToDoForm.tsx` 
   ``` typescript
-  interface toDoProps{
+  type toDoProps={
     toDo: string, 
     setToDo: React.Dispatch<React.SetStateAction<string>>
   }
@@ -163,32 +137,24 @@ export default App;
       </>
     );
   }
-
-  export default ToDoForm;
 ```
 
-  c) Add a onChange which setToDo to the value typed in and set the 
+  ### c) Add a onChange which setToDo to the value typed in and set the 
 
-3) Next, when a user clicks "Add To Do" we want to add the To-Do to the list of To-Dos
+## Add To-Do to the list of To-Dos
 
-  a) We would need to create a `toDoList` and `setToDoList` as our state in our `App.tsx` with a type of array of ToDo
+  ### a) Create a `toDoList` and `setToDoList` as our state in our `App.tsx` with a type of **array of ToDo**
   
-  Since our `toDoList` has a type of array of `toDos`, we can create a `model.ts` file that stores an interface of `ToDo`
+  Since our `toDoList` has a type of array of `toDos`, we can create a `model.ts` file that stores a type of `ToDo`
   ```typescript 
-  export interface ToDo{
+  export type ToDo={
     id: number;
     task: string; 
     completed: boolean;
   }
   ```
-  Next, we can create the `toDoList` with an initial state of `[]` and type it as an array of ToDo by importing the interface `ToDo`
+  ### b) Create `toDoList` with an initial state of `[]` and type it as an array of ToDo by importing the type `ToDo` form `model.tsx`
   ```typescript 
-  import "./App.css";
-  import { useState } from "react";
-
-  import ToDoForm from "./components/ToDoForm";
-  import ToDoList from "./components/ToDoList";
-  
   import {ToDo} from "./model";
   
   const App: React.FC = () => {
@@ -201,25 +167,11 @@ export default App;
       </>
     );
   };
-
-export default App;
 ```
 
-  c) Now we would need a something to add the ToDo to the ToDoList, we can create a `handleAdd` function that accepts a `e` with a type of `React.FormEvent` in our `App.tsx`, it should check if there is anything in `toDo` and add it to `toDoList` before      setting `toDo` back to `""`.
+  ### c) Now we would need a something to add the ToDo to the ToDoList, we can create a `handleAdd` function that accepts a `e` with a type of `React.FormEvent` in our `App.tsx`, it should check if there is anything in `toDo` and add it to `toDoList` before      setting `toDo` back to `""`.
      We then pass it down as props to our `ToDoForm`.
   ```typescript
-  import "./App.css";
-  import { useState } from "react";
-
-  import ToDoForm from "./components/ToDoForm";
-  import ToDoList from "./components/ToDoList";
-
-  import { ToDo } from "./model";
-
-  const App: React.FC = () => {
-    const [toDo, setToDo] = useState<string>("");
-    const [toDoList, setToDoList]= useState<ToDo[]>([])
-
     const handleAdd=(e: React.FormEvent)=>{
       e.preventDefault()
       if (toDo) {
@@ -234,14 +186,12 @@ export default App;
       </>
     );
   };
-
-  export default App;
   ```
   
-  d) In our `ToDoForm`, we need to accept the `handleAdd` as a prop and add it to our interface of `toDoProps`, then call the `handleAdd` `onSubmit` in the form
+  ### d) In our `ToDoForm`, we need to accept the `handleAdd` as a prop and add it to our type of `toDoProps`, then call the `handleAdd` `onSubmit` in the form
 
   ```typescript
-  interface toDoProps {
+  type toDoProps {
     toDo: string;
     setToDo: React.Dispatch<React.SetStateAction<string>>;
     handleAdd: (e: React.FormEvent) => void;
@@ -270,25 +220,25 @@ export default App;
   export default ToDoForm;
   ```
   
-  e) Now lets console.log `toDoList` and you can see that everytime you submit a To-Do, it will be added in to the `toDoList`
+ ### e) Now lets console.log `toDoList` and you can see that everytime you submit a To-Do, it will be added in to the `toDoList`
   
 <img width="1224" alt="Screenshot 2023-06-10 at 7 35 40 AM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/3589e3bf-90d0-4a5d-8de0-0ffa528d933d">
 
-4) Now we need to display the list of To-Dos 
+## Display the list of To-Dos 
 
-a) Pass `toDoList` down as props from `App` to `ToDoList`
+### a) Pass `toDoList` down as props from `App` to `ToDoList`
 ```typescript
 <ToDoList toDoList={toDoList} setToDoList={setToDoList}/>
 ```
 
-b) Accept the `toDoList` and `setToDoList` as props and create an interface type for the props. 
+### b) Accept the `toDoList` and `setToDoList` as props and create a type for the props. 
 
-c) Map the `toDoList` and set the `key` as `toDo.id` and pass it down as props to `SingleToDo` along with `toDoList` and `setToDoList`
+### c) Map the `toDoList` and pass `toDoList` and `setToDoList` down as props to `SingleToDo` and set the `key` as `toDo.id` 
 ```typescript 
 import SingleToDo from "./SingleToDo";
 import { ToDo } from "../model";
 
-interface toDoListProps {
+type toDoListProps ={
   toDoList: ToDo[];
   setToDoList: React.Dispatch<React.SetStateAction<ToDo[]>>;
 }
@@ -300,10 +250,9 @@ const ToDoList: React.FC<toDoListProps> = ({toDoList, setToDoList}) => {
     </>
   );
 };
-export default ToDoList;
 ```
 
-d) In SingleToDo, accept the props and create a type interface for the props. Add `toDo.task` into the div and it should display on the page!
+d) In `SingleToDo.tsx`, accept the props and create a type interface for the props. Add `toDo.task` as a `p` and it should display on the page!
 ```typescript
 import { ToDo } from "../model";
 type singleToDoProps = {
@@ -314,13 +263,13 @@ type singleToDoProps = {
 const SingleToDo: React.FC<singleToDoProps> = ({toDo, toDoList, setToDoList}) => {
   return (
     <>
-      <div id="toDo">
+      <form id="toDo">
         <p>{toDo.task}</p>
         <div>
           <button className="toDoButton">❌</button>
           <button className="toDoButton">✔️</button>
         </div>
-      </div>
+      </form>
     </>
   );
 };
@@ -330,7 +279,7 @@ export default SingleToDo;
 
 ### Deleting the ToDos
 
-a) Create a `handleDelete` function in `SingleToDo.tsx` that accepts a id as a parameter and filters the toDolist and return toDos that doesnt match the id
+a) Create a `handleDelete` function in `SingleToDo.tsx` that accepts a `id` as a parameter and filters the `toDolist`, returning `toDos` that DOESNT match the `id`
 ```typescript
 const handleDelete = (id: number) => {
     setToDoList(toDoList.filter((toDo) => toDo.id !== id));
