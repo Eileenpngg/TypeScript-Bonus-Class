@@ -27,8 +27,8 @@ type Admin{
 }
 
 
-Let eileen = User | Admin = {name:”hitesh, id334}
-eileen= {username: ‘hc’, id: 334}
+Let eileen = User | Admin = {name:”eileen, id:12345}
+eileen= {username: ‘eileenAdmin’, id: 12345}
 ```
 
 This would assign the variable "Jenny" to either a User or Admin.
@@ -37,7 +37,7 @@ We can also **restrict the variables** to specific values
 
 ```typescript
 
-let admin = “Benson” | “Jessica” | “Charlie”
+let admin : “Benson” | “Jessica” | “Charlie”
 
 admin = “Benson” 
 
@@ -45,7 +45,7 @@ admin = “Rachel”
 ```
 Assigning admin to Rachel would cause the following error because during initalisation, we **did not include Rachel** as one of the admin
 
-![Screenshot 2023-05-31 at 7 10 23 PM](https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/12729fbb-af32-4618-9909-f4c2c482f8c2)
+<img width="671" alt="Screenshot 2023-06-12 at 5 37 10 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e3240f5e-70eb-4a26-9402-10c03ad28327">
 
 ---
 
@@ -108,7 +108,11 @@ const data2: string [] =  [“1”,”2”,”3”]
 
 But what if we want **both numbers and string in an array**? A common mistake is writing it like this:
 
-![Screenshot 2023-05-31 at 7 02 07 PM](https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/23b6014e-4420-4106-8f46-8df35d600c23)
+```typescript
+  const data1: string | number[] = [1,"2",3]
+```
+
+<img width="740" alt="Screenshot 2023-06-12 at 5 38 59 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/3394fe43-3dd9-4f1a-af8b-b0d80583a0d2">
 
 The example above would cause an error because you are typing "data3" as a type of **string or an array of numbers**. In this case, **["1","2"] is an array of strings** which fit netiher of the type, thus it will return an error.
 
