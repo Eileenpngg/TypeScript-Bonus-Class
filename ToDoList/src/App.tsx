@@ -13,10 +13,7 @@ const App: React.FC = () => {
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
     if (toDo) {
-      setToDoList([
-        ...toDoList,
-        { id: Date.now(), task: toDo, completed: false },
-      ]);
+      setToDoList([...toDoList, { id: Date.now(), task: toDo, completed: false }]);
       setToDo("");
     }
   };
@@ -24,7 +21,7 @@ const App: React.FC = () => {
   return (
     <>
       <ToDoForm toDo={toDo} setToDo={setToDo} handleAdd={handleAdd} />
-      <ToDoList />
+      <ToDoList toDoList={toDoList} setToDoList={setToDoList} />
     </>
   );
 };

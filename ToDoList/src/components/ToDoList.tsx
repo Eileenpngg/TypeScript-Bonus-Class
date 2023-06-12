@@ -1,9 +1,15 @@
-import ToDo from "./ToDo";
+import SingleToDo from "./SingleToDo";
+import { ToDo } from "../model";
 
-const ToDoList: React.FC = () => {
+interface toDoListProps {
+  toDoList: ToDo[];
+  setToDoList: React.Dispatch<React.SetStateAction<ToDo[]>>;
+}
+const ToDoList: React.FC<toDoListProps> = ({toDoList, setToDoList}) => {
   return (
     <>
-      <ToDo />
+    {toDoList.map((toDo)=>(<SingleToDo toDo={toDo} key={toDo.id} toDoList={toDoList} setToDoList={setToDoList}/>))
+    }
     </>
   );
 };

@@ -1,6 +1,6 @@
 
 
-interface toDoProps {
+type toDoProps ={
   toDo: string;
   setToDo: React.Dispatch<React.SetStateAction<string>>;
   handleAdd: (e: React.FormEvent) => void;
