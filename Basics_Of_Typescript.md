@@ -15,7 +15,8 @@ Typescript is a "superset" of Javascript , and is **NOT** a standalone programmi
 
 ### How does Typescript work
 
-<img width="958" alt="Screenshot 2023-05-29 at 10 46 43 AM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/6759e3ab-0029-4399-81e8-403833041e85">
+<img width="712" alt="Screenshot 2023-06-12 at 3 40 37 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/3405fb21-b895-459b-87ab-c7a69b4d16fc">
+
 
 Typescript is compiled and is "converted" into Javascript creating a corresponding Javascript file.
 
@@ -49,9 +50,9 @@ It will cause the error above because the variable is of type string and is **ex
 
 ---
 
-However in Typescript, most of the time you **ODNT NEED** to indicate the type to a variable as typescript is able to type it itself so its redundant and isn't usually not a good practice.
+However in Typescript, most of the time you **DONT NEED** to indicate the type to a variable as typescript is able to type it itself so its redundant and isn't usually not a good practice.
 
-<img width="218" alt="Screenshot 2023-05-29 at 1 27 55 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/71976c46-1bd2-45b4-b968-9a0e15bafbf3">
+<img width="202" alt="Screenshot 2023-05-29 at 1 27 05 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/472ca94f-ed60-440e-8a01-a662c1387689">
 
 >If you are not assigning a value to a variable and have a idea of what the type should be, you should be typing it else it will be automatically be assigned to any (e.g `let name;`)
 
@@ -70,6 +71,7 @@ However, for objects, its **not very useful to type it as an object only** as th
 We can create something called an **Type Aliase**.
 
 Now lets create a Type Aliase for "Person" and apply the type to an object
+
 
 ```typescript
 type Person{
@@ -97,8 +99,7 @@ const SuperHeroes: [] = []
 ```
 However, this will result in an error when we try to push something into the array
 
-<img width="839" alt="Screenshot 2023-05-30 at 2 45 22 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/99862434-8844-49a0-b7b5-e02ce4dad6b8">
-
+<img width="814" alt="Screenshot 2023-06-12 at 3 49 39 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/2824e83d-6a7e-43dc-9858-e5233caa9f8e">
 
 Also remember in Typescript we should always restrict the type whenever possible! In this case, let's try to re-create the superHeroes array with the values of type string!
 
@@ -202,7 +203,7 @@ function createNewUser():{name: String, isPaid: Boolean}{
 
 Now if i try to return a object with a key that **doesnt exist** on the return type, i will get an error. We can also use Interfaces and Type aliases, we will touch on what is a type aliase and the difference between the two.
 
-<img width="1280" alt="Screenshot 2023-05-30 at 2 01 36 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/5adb5b7e-eaf9-4ecc-ae6c-0277b75b33c6">
+<img width="1074" alt="Screenshot 2023-05-30 at 2 01 04 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/dbb35aba-1ce4-4525-8c42-b4b8b096041c">
 
 <details>
 <summary> :bulb: What is the difference between the type void and never? </summary>
