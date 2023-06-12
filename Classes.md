@@ -14,6 +14,8 @@ class User{
 }
 }
 ```
+<br/>
+
 b) Now lets try to add typescript in
 ```typescript 
 class User{
@@ -26,6 +28,8 @@ class User{
 }
 ```
 If you notice, the `email` and `name` are class properties that we did not need to declare in Javascript. However in Typescript, it is necessary to declare it so we can type check the class properties.
+
+<br>
 
 c) Next, we can initialize the class using the `this` keyword or by initializing it to the property directly
 
@@ -40,6 +44,7 @@ class User{
 }
 }
 ```
+<br>
 
 d) Now lets create a new instance of a User John
 ```typescript
@@ -49,6 +54,8 @@ We can change the phone number of john by overwriting the default number like th
 `john.phone=”01234567"`
 
 But what if we dont want the phone number to be overwritten? 
+
+<br>
 
 e) We can add a `readonly` property to the `phone`!
 
@@ -105,6 +112,7 @@ class User{
   }
   }
 ```
+<br>
 
 b) Now lets create a getter that returns the email of a user
 
@@ -145,6 +153,8 @@ class SubUser extends User{
 However this will return an error as private only allows access to its property and methods in its own class
 
 <img width="684" alt="Screenshot 2023-06-05 at 1 15 13 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e87c7518-ce4f-4d6f-be25-60cb79326dc3">
+
+<br>
 
 b) We can mark the class as `protected` instead to make the property accessible to its **own class and its childrens** 
 

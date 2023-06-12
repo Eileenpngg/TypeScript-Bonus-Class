@@ -55,6 +55,6 @@ enum dailyEssentials{
 }
 
 const cost = dailyEssential.SOAP // cost = 6
+```
 
 >Note that if you dont declare a value for any of the enum, by default, it will be an increment of the previous enum value. e.g if toothpaste = 5 , by default shampoo=6 unless specified
-```

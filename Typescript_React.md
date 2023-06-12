@@ -12,26 +12,29 @@ To demonstrate the difference between using Javascript and Typescript in React, 
   - A ToDoForm component
 
    a) Create a vite project
-    In your tsconfig make the following changes 
-    -  change `"moduleResolution": "bundler"` to `"moduleResolution": "node"`
-    -  change `"resolveJsonModule"` to `"allowJs": true`
-    -  add `"allowSyntheticDefaultImports": true`
+   
+   
+   In your `tsconfig.json` make the following changes: 
+   - change `"moduleResolution": "bundler"` to `"moduleResolution": "node"`
+   - change `"resolveJsonModule"` to `"allowJs": true`
+   - add `"allowSyntheticDefaultImports": true`
+    
   <br/>
 
   b) Create `ToDoForm` component
   
   In Typescript, we need should always **specify the return type whenever possible**, hence for our component we would be using using `React:FC` as our return type as shown below.
-  > Note that if you are using the keyword `function` instead of arrow function, you should be specifiying `JSX.Element` as your return type instead
+  > Note that if you are using the keyword `function` to create your component instead of arrow function, you should be specifiying `JSX.Element` as your return type instead
 
   ```javascript
   const ToDoForm: React.FC=()=> {
     return (
       <>
-        <div id="toDoForm">
+        <form id="toDoForm">
           <label htmlFor="todoinput">Create a ToDo 📝</label>
           <input placeholder="e.g Sweep the floor" id="todoinput" size={40} />
           <button id="addToDo">Add To Do</button>
-        </div>
+        </form>
       </>
     );
   }
@@ -91,7 +94,7 @@ To demonstrate the difference between using Javascript and Typescript in React, 
 
  ### Capture the value when a user types in a To-Do. 
 
-   a) Create a `toDo` state in the `App.tsx` with a `" "` as the inital state and specify the type of our `toDo` by setting the `toDo` state to have a type of `string`
+   a) Create a `toDo` state in the `App.tsx` with a `" "` as the inital state and specify the type of `toDo` by setting the `toDo` state to have a type of `string`
 
 ```typescript 
  const [toDo, setToDo] = useState<string>("");
@@ -174,7 +177,7 @@ onChange={(e) => setToDo(e.target.value)}
 
    a) Create a `toDoList` and `setToDoList` as our state in our `App.tsx` with a type of **array of ToDo**
   
-  Since our `toDoList` has a type of array of `toDos`, we can create a `model.ts` file that stores a type of `ToDo`
+  Since our `toDoList` has a type of array of `toDos`, we can create a `model.ts` file that stores a type of `ToDo`, so we can export it and use it in the different components
   ```typescript 
   export type ToDo={
     id: number;
@@ -201,8 +204,10 @@ onChange={(e) => setToDo(e.target.value)}
 ```
 <br/>
 
-   c) Now we would need a something to add the ToDo to the ToDoList, we can create a `handleAdd` function that accepts a `e` with a type of `React.FormEvent` in our `App.tsx`, it should check if there is anything in `toDo` and add it to `toDoList` before      setting `toDo` back to `""`.
-     We then pass it down as props to our `ToDoForm`.
+   c) Now we would need a something to add the ToDo to the ToDoList, we can create a `handleAdd` function that accepts a `e` with a type of `React.FormEvent` in our `App.tsx`. 
+   
+   It should check if there is anything in `toDo` and add it to `toDoList` before setting `toDo` back to `""`.
+   We then pass it down as props to our `ToDoForm`.
   ```typescript
     const handleAdd=(e: React.FormEvent)=>{
       e.preventDefault()
@@ -287,7 +292,7 @@ const ToDoList: React.FC<toDoListProps> = ({toDoList, setToDoList}) => {
 ```
 <br/>
 
-d) In `SingleToDo.tsx`, accept the props and create a type interface for the props. Add `toDo.task` as a `p` and it should display on the page!
+d) In `SingleToDo.tsx`, accept the props and create a type for the props. Add `toDo.task` as a `p` and it should display on the page!
 ```typescript
 import { ToDo } from "../model";
 type singleToDoProps = {
@@ -314,7 +319,7 @@ export default SingleToDo;
 
 ### Deleting the ToDos
 
-a) Create a `handleDelete` function in `SingleToDo.tsx` that accepts a `id` as a parameter and filters the `toDolist`, returning `toDos` that DOESNT match the `id`
+a) Create a `handleDelete` function in `SingleToDo.tsx` that accepts a `id` as a parameter and filters the `toDolist`, returning `toDos` that **DOESNT** match the `id`
 ```typescript
 const handleDelete = (id: number) => {
     setToDoList(toDoList.filter((toDo) => toDo.id !== id));
@@ -322,7 +327,7 @@ const handleDelete = (id: number) => {
 ```
 <br/>
 
-b) Add a onClick event that fires off the `handleDelete` and passes `toDo.id` as a parameter.
+b) Add a `onClick` event that fires off the `handleDelete` and passes `toDo.id` as a parameter.
 
 ```typescript
 return (
@@ -369,7 +374,7 @@ b) Add a `onClick` event that fires off the `handleDone` and passes `toDo.id` as
           <button className="toDoButton" onClick={() => handleDone(toDo.id)}>
             ✔️
           </button>
-          <button className="toDoButton" onClick={() => }>✏️</button>
+          <button className="toDoButton">✏️</button>
         </div>
       </div>
     </>
@@ -399,7 +404,7 @@ c) Add a `onClick` event that checks only if the toDo is **NOT** completed and `
 ```
 <br/>
 
-d) Show the input box instead of the task only when `editing` is true. The inout box should have a value of `editToDo` and an onChange that `setEditToDo` 
+d) Show the input box instead of the task only when `editing` is true. The input box should have a value of `editToDo` and an onChange that `setEditToDo` 
 ```typescript
 return (
     <>
