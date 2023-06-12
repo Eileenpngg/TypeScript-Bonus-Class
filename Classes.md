@@ -73,7 +73,8 @@ class User{
 
 Now if i try to overwrite the phone, it will return an error and prevent `phone` from being overwritten
 
-<img width="594" alt="Screenshot 2023-06-05 at 1 53 50 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e08fc7aa-4af9-404f-8502-d521d26e61db">
+<img width="585" alt="Screenshot 2023-06-12 at 4 57 46 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/26660842-f276-4d16-8942-ea3adfb87dbd">
+
 
 f) If we want to control whether people can access the information, we can declare the `email` and `name` as `public` OR `private`.
 
@@ -138,8 +139,8 @@ Now you can only increment the points if thes spending is more than $20.
 a) Lets mark points in `User` class as `private` and create a `subUser` that **extends** our `User` class and has a method that adds 100 points to `User` `points` property
 
 ```typescript
-private class User{
-    points=10
+ class User{
+    private points=10
     constructor(public email: string, public name: string){
   }
   }
@@ -152,15 +153,15 @@ class SubUser extends User{
 ```
 However this will return an error as private only allows access to its property and methods in its own class
 
-<img width="684" alt="Screenshot 2023-06-05 at 1 15 13 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/e87c7518-ce4f-4d6f-be25-60cb79326dc3">
+<img width="660" alt="Screenshot 2023-06-12 at 5 05 41 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/6676bdde-0984-4096-bdf6-f0ed33fa1d75">
 
 <br>
 
-b) We can mark the class as `protected` instead to make the property accessible to its **own class and its childrens** 
+b) We can mark the `points` as `protected` instead to make the property accessible to its **own class and its childrens** 
 
 ```typescript
-protected class User{
-    points=10
+ class User{
+    protected points=10
     constructor(public email: string, public name: string){
   }
   }
