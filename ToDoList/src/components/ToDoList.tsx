@@ -1,7 +1,7 @@
 import SingleToDo from "./SingleToDo";
 import { ToDo } from "../model";
 
-interface toDoListProps {
+type toDoListProps= {
   toDoList: ToDo[];
   setToDoList: React.Dispatch<React.SetStateAction<ToDo[]>>;
 }
