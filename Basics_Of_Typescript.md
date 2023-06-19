@@ -184,8 +184,9 @@ This ensures that **only** a value of the type **number** can be returned.
 <details>
 <summary> 💡 What happens when you try to apply a string method (e.g `toLowerCase`) to a value of type number? </summary>
 <br>
-<img width="540" alt="Screenshot 2023-05-30 at 1 31 41 PM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/6a988de2-2f4b-4c25-8c3d-f64080708846">
-  
+
+<img width="531" alt="Screenshot 2023-06-19 at 10 37 51 AM" src="https://github.com/Eileenpngg/TypeScript-Bonus-Class/assets/77367030/4c7fb036-1645-4c78-b732-f678239c6559">
+
 `toLowerCase` is a string method and cannot be applied to a value of type number, so this causes an error
 
 </details>
